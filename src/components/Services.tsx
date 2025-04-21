@@ -1,17 +1,40 @@
 
 import { Scissors, Brush, Palette, Heart, User, Star } from 'lucide-react';
+import { Card, CardContent } from './ui/card';
 
-const ServiceCard = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => {
+const accentBg = [
+  "bg-gradient-to-br from-beauty-primary/90 to-beauty-pink/80",
+  "bg-gradient-to-br from-beauty-cream/90 to-beauty-secondary/70",
+  "bg-gradient-to-br from-beauty-peach/90 to-beauty-primary/50",
+];
+
+const ServiceCard = ({
+  icon: Icon,
+  title,
+  description,
+  accentIndex,
+}: {
+  icon: any;
+  title: string;
+  description: string;
+  accentIndex: number;
+}) => {
   return (
-    <div className="service-card group hover:bg-beauty-primary hover:-translate-y-1">
-      <div className="mb-4 flex justify-center">
-        <div className="w-16 h-16 rounded-full bg-beauty-light flex items-center justify-center group-hover:bg-white">
-          <Icon size={28} className="text-beauty-primary" />
+    <Card className={`group overflow-hidden shadow-lg border-0 ${accentBg[accentIndex % accentBg.length]} hover:scale-105 transition-transform duration-300`}>
+      <CardContent className="pt-8 pb-5">
+        <div className="mb-4 flex justify-center">
+          <div className="w-16 h-16 rounded-full bg-white/80 flex items-center justify-center shadow-sm">
+            <Icon size={28} className="text-beauty-primary" />
+          </div>
         </div>
-      </div>
-      <h3 className="text-xl font-playfair font-semibold mb-2 text-beauty-dark text-center group-hover:text-white">{title}</h3>
-      <p className="text-gray-600 text-center group-hover:text-white/90">{description}</p>
-    </div>
+        <h3 className="text-xl font-playfair font-semibold mb-2 text-beauty-dark text-center group-hover:text-beauty-primary transition-colors">
+          {title}
+        </h3>
+        <p className="text-gray-700 text-center group-hover:text-gray-900/90 transition-colors">
+          {description}
+        </p>
+      </CardContent>
+    </Card>
   );
 };
 
@@ -20,32 +43,32 @@ const Services = () => {
     {
       icon: Palette,
       title: "Bridal Makeup",
-      description: "Professional bridal makeup services tailored to your style and wedding theme."
+      description: "Professional bridal makeup services tailored to your style and wedding theme.",
     },
     {
       icon: Scissors,
       title: "Hair Styling",
-      description: "Expert hair cutting, coloring, and styling services for all hair types."
+      description: "Expert hair cutting, coloring, and styling services for all hair types.",
     },
     {
       icon: User,
       title: "Facials & Skincare",
-      description: "Rejuvenating facial treatments to nourish and revitalize your skin."
+      description: "Rejuvenating facial treatments to nourish and revitalize your skin.",
     },
     {
       icon: Heart,
       title: "Body Treatments",
-      description: "Relaxing body treatments including massage and body polishing."
+      description: "Relaxing body treatments including massage and body polishing.",
     },
     {
       icon: Brush,
       title: "Nail Care",
-      description: "Professional manicure and pedicure services with premium products."
+      description: "Professional manicure and pedicure services with premium products.",
     },
     {
       icon: Star,
       title: "Beauty Consultation",
-      description: "Personalized beauty consultation to enhance your natural features."
+      description: "Personalized beauty consultation to enhance your natural features.",
     },
   ];
 
@@ -59,13 +82,14 @@ const Services = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <ServiceCard 
               key={index}
               icon={service.icon}
               title={service.title}
               description={service.description}
+              accentIndex={index}
             />
           ))}
         </div>
