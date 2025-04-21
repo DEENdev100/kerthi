@@ -53,14 +53,24 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="relative hidden md:block">
+        <div className="relative hidden md:block w-[420px] h-[420px] rounded-full overflow-hidden shadow-xl shadow-beauty-primary/30 hover:scale-105 transition-transform duration-300">
+          {/* Circular floating accent backgrounds */}
           <div className="absolute -top-10 -left-10 w-24 h-24 bg-beauty-cream rounded-full animate-float opacity-70 blur-md"></div>
-          <div className="absolute -bottom-5 -right-5 w-32 h-32 bg-beauty-peach rounded-full animate-float opacity-70 blur-md" style={{ animationDelay: '1s' }}></div>
-          <div className="relative z-10 bg-white/90 p-4 rounded-2xl shadow-xl overflow-hidden hover:scale-105 transition-transform duration-300">
-            <img 
-              src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80" 
-              alt="Beauty salon treatment" 
-              className="w-full h-[420px] object-cover rounded-lg"
+          <div
+            className="absolute -bottom-5 -right-5 w-32 h-32 bg-beauty-peach rounded-full animate-float opacity-70 blur-md"
+            style={{ animationDelay: '1s' }}
+          ></div>
+          <img
+            src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
+            alt="Beauty salon treatment"
+            className="w-full h-full object-cover"
+          />
+          {/* Logo inside circle */}
+          <div className="absolute top-4 left-4 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md">
+            <img
+              src="/favicon.ico"
+              alt="Logo"
+              className="w-12 h-12 object-contain"
             />
           </div>
         </div>
