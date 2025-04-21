@@ -60,11 +60,6 @@ const Hero = () => {
             className="absolute -bottom-5 -right-5 w-32 h-32 bg-beauty-peach rounded-full animate-float opacity-70 blur-md"
             style={{ animationDelay: '1s' }}
           ></div>
-          <img
-            src="https://images.unsplash.com/photo-1649972904349-6e44c42644a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=700&q=80"
-            alt="Beauty salon treatment"
-            className="w-full h-full object-cover"
-          />
           {/* Logo inside circle */}
           <div className="absolute top-4 left-4 w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-md">
             <img
@@ -101,3 +96,4 @@ const Hero = () => {
 };
 
 export default Hero;
+
