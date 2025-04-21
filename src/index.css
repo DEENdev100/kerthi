@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;700&display=swap');
 
 @tailwind base;
@@ -6,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 0 0% 95%; /* Light gray background */
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -91,7 +92,7 @@
   }
 
   body {
-    @apply bg-background text-foreground font-lato;
+    @apply bg-background text-foreground font-lato font-semibold;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -130,6 +131,11 @@
 
   .input-field {
     @apply w-full px-4 py-3 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-beauty-primary;
+  }
+
+  /* Add background color to the contact container */
+  #contact > .container {
+    @apply bg-black/10 rounded-lg p-8;
   }
 }
 
